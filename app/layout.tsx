@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Software Engineer | Portfolio",
+  title: "Aaron Zeng",
   description: "Software engineer with substantial experience building scalable systems and elegant solutions.",
 };
 

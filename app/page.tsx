@@ -2,14 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { CornerDownRight, Star, BookOpen, Newspaper, Mail } from "lucide-react";
-import { FaLinkedin, FaGithub, FaInstagram, FaTiktok } from "react-icons/fa";
-import Clock from "./components/Clock";
+import { Star, BookOpen, Newspaper, Mail } from "lucide-react";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import TextLoop from "react-text-loop";
 import BackgroundBlob from "./components/BackgroundBlob";
-import {
-  ChevronRightIcon,
-  ChevronRightIconHandle,
-} from "../components/ChevronRightIcon";
 import {
   ExternalLinkIcon,
   ExternalLinkIconHandle,
@@ -20,183 +16,156 @@ import { LinkedInIcon } from "../components/LinkedinIcon";
 import { InstagramIcon } from "../components/InstagramIcon";
 import { useRef } from "react";
 import sharedLinks from "./shared-links.json";
+import { DownloadIcon, DownloadHandle } from "../components/DownloadIcon";
 
 export default function Home() {
-  const chevronRightIconRef = useRef<ChevronRightIconHandle>(null);
+  const downloadIconRef = useRef<DownloadHandle>(null);
 
   return (
     <div className="w-screen flex justify-center items-center bg-zinc-900">
       <BackgroundBlob />
       <main className="mx-auto max-w-3xl px-6 py-24 sm:py-32 z-50">
         <div className="space-y-16">
-          <div className="flex items-start sm:items-center gap-8">
-            <div className="sm:h-30 sm:w-30 sm:min-w-30 sm:min-h-30 h-28 w-28 min-h-28 min-w-28">
-              <Image
-                src="/bio_img_blue.png"
-                alt="Profile"
-                width={80}
-                height={80}
-                className="h-full w-full object-contain"
-              />
-            </div>
-            <div>
-              <code className="text-sm sm:text-base text-muted-foreground tracking-tighter">
-                It's <Clock /> in{" "}
-                <span className="hidden sm:inline">Dallas,</span> TX
-              </code>
-              <h1
-                className={`hidden sm:block text-2xl sm:text-4xl font-semibold tracking-tight mt-2`}
-              >
-                <span className={`font-semibold tracking-wide leading-normal`}>
-                  <span className="hidden sm:inline">Hi 👋🏻</span> I'm{" "}
-                  <span className="text-nowrap">Aaron Zeng</span>
-                </span>
-              </h1>
-              <h1
-                className={`block sm:hidden text-3xl sm:text-4xl font-semibold tracking-tight mt-2`}
-              >
-                <span
-                  className={`font-semibold tracking-wide leading-normal flex flex-col`}
-                >
-                  <span>Aaron Zeng</span>
-                  <span className="text-nowrap font-thin text-xl mt-3">
-                    Full Stack SWE
-                  </span>
-                </span>
-              </h1>
-              <div className="mt-2">
-                <code className="hidden sm:block text-muted-foreground tracking-tighter">
-                  I use code to fix problems I think of in the shower
-                </code>
-              </div>
-            </div>
-          </div>
-          <div className="space-y-3">
-            <h2 className="text-base font-medium text-muted-foreground uppercase">
-              About
-            </h2>
-            <code className="text-sm leading-relaxed">
-              Currently @ Chase, building AI tooling to generate brand-aligned
-              web and app UI from the firm's proprietary design system. In my
-              free time, I solve silly problems with even sillier solutions.
-            </code>
-            <div className="w-full flex items-center justify-between mt-6 text-muted-foreground">
-              <div className="flex items-center gap-5">
-                <Link
-                  href={sharedLinks.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <InstagramIcon
-                    size={20}
-                    duration={0.5}
-                    className="hover:text-foreground transition-colors"
-                  />
-                </Link>
-                <Link
-                  href={sharedLinks.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GithubIcon
-                    size={20}
-                    duration={0.5}
-                    className="hover:text-foreground transition-colors"
-                  />
-                </Link>
-                <Link
-                  href={sharedLinks.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <LinkedInIcon
-                    size={20}
-                    duration={0.5}
-                    className="hover:text-foreground transition-colors"
-                  />
-                </Link>
-              </div>
-              <Link
-                href="/about"
-                onMouseEnter={() =>
-                  chevronRightIconRef.current?.startAnimation()
-                }
-                onMouseLeave={() =>
-                  chevronRightIconRef.current?.stopAnimation()
-                }
-                className="flex items-center gap-2 hover:text-foreground transition-colors overflow-visible font-medium underline-offset-4 underline"
-              >
-                More about me{" "}
-                <ChevronRightIcon
-                  size={20}
-                  duration={1}
-                  isAnimated={true}
-                  ref={chevronRightIconRef}
+          <div className="space-y-10">
+            <div className="flex items-center gap-8">
+              <div className="sm:h-30 sm:w-30 sm:min-w-30 sm:min-h-30 hidden sm:block">
+                <Image
+                  src="/bio_img_blue.png"
+                  alt="Profile"
+                  width={80}
+                  height={80}
+                  className="h-full w-full object-contain"
                 />
-              </Link>
-            </div>
-          </div>
-          <div className="space-y-6">
-            <h2 className="text-base font-medium text-muted-foreground uppercase">
-              Experience
-            </h2>
-            <div className="relative">
-              <div className="absolute left-2 top-0 bottom-0 w-px bg-blue-300/80" />
-              <div className="space-y-6 pl-10 ">
-                {[
-                  {
-                    title: "Software Engineer 1",
-                    company: "JPMorganChase",
-                    period: "Present",
-                  },
-                  {
-                    title: "Machine Learning Intern",
-                    company: "JPMorganChase",
-                    period: "Summer 2024",
-                  },
-                  {
-                    title: "Software Engineer Intern",
-                    company: "JPMorganChase",
-                    period: "Summer 2023",
-                  },
-                  {
-                    title: "Software Engineer Intern",
-                    company: "U.S. Dept of Agriculture",
-                    companyAbbr: "USDA",
-                    period: "Summer 2022",
-                  },
-                ].map((exp, idx) => (
-                  <div key={idx} className="relative">
-                    <div className="absolute -left-[36px] top-1.5 h-2.5 w-2.5 rounded-full bg-blue-400 border-1 border-zinc-300" />
-                    <div className="flex flex-col items-start justify-between gap-2">
-                      <div className="text-base font-medium flex items-center justify-between w-full">
-                        {exp.companyAbbr ? (
-                          <>
-                            <div className="hidden sm:block">{exp.company}</div>
-                            <div className="block sm:hidden">
-                              {exp.companyAbbr}
-                            </div>
-                          </>
-                        ) : (
-                          <div>{exp.company}</div>
-                        )}
-
-                        <div className="font-normal">{exp.period}</div>
-                      </div>
-                      <div className="flex flex-col items-start justify-between gap-1">
-                        <div className="text-sm text-muted-foreground">
-                          <code>{exp.title}</code>
-                        </div>
-                      </div>
+              </div>
+              <div>
+                <h1
+                  className={`block text-4xl font-semibold tracking-tight mt-2`}
+                >
+                  <span
+                    className={`font-semibold tracking-wide leading-normal flex items-start gap-4 sm:gap-0`}
+                  >
+                    Hi, I'm Aaron{" "}
+                    <div className="h-12 w-12 inline-block sm:hidden">
+                      <Image
+                        src="/bio_img_small.png"
+                        alt="Profile"
+                        width={80}
+                        height={80}
+                        className="h-full w-full object-contain"
+                      />
                     </div>
-                  </div>
-                ))}
+                  </span>
+                </h1>
+                <div className="mt-2">
+                  <code className="block text-muted-foreground tracking-normal">
+                    & I'm probably{" "}
+                    <TextLoop interval={3000}>
+                      <span>building</span>
+                      <span>learning</span>
+                      <span>testing</span>
+                      <span>debugging</span>
+                      <span>crashing</span>
+                    </TextLoop>{" "}
+                    something.
+                  </code>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <div className="text-base font-medium text-muted-foreground flex items-start justify-between"></div>
+              <code className="text-sm leading-relaxed">
+                Currently @{" "}
+                <a
+                  href="https://www.jpmorganchase.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-foreground transition-colors underline underline-offset-4"
+                >
+                  JPMorganChase
+                </a>
+                , building AI tools to generate brand-aligned UI. In the past,
+                I’ve built projects like{" "}
+                <a
+                  href={sharedLinks.preptai}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-foreground transition-colors underline underline-offset-4"
+                >
+                  Prept.ai
+                </a>{" "}
+                and{" "}
+                <a
+                  href={sharedLinks.gptgo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-foreground transition-colors underline underline-offset-4"
+                >
+                  GptGO
+                </a>{" "}
+                that have been grant-funded and adopted by thousands of users.
+                Don't blink! I'm always building something bigger.
+              </code>
+              <div className="w-full flex items-center justify-start mt-8 text-muted-foreground">
+                <div className="flex items-center gap-5">
+                  <Link
+                    href={sharedLinks.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <InstagramIcon
+                      size={20}
+                      duration={0.5}
+                      className="hover:text-foreground transition-colors"
+                    />
+                  </Link>
+                  <Link
+                    href={sharedLinks.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <GithubIcon
+                      size={20}
+                      duration={0.5}
+                      className="hover:text-foreground transition-colors"
+                    />
+                  </Link>
+                  <Link
+                    href={sharedLinks.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <LinkedInIcon
+                      size={20}
+                      duration={0.5}
+                      className="hover:text-foreground transition-colors"
+                    />
+                  </Link>
+                  <Link
+                    className="text-xs flex items-center gap-2 mb-1.5"
+                    href="/ZENG_AARON_RESUME_5_31_25.pdf"
+                    download="Aaron_Zeng_Resume.pdf"
+                    onMouseEnter={() =>
+                      downloadIconRef.current?.startAnimation()
+                    }
+                    onMouseLeave={() =>
+                      downloadIconRef.current?.stopAnimation()
+                    }
+                  >
+                    <DownloadIcon
+                      size={20}
+                      duration={0.5}
+                      className="hover:text-foreground transition-colors"
+                      ref={downloadIconRef}
+                    />
+                    Resume
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
           <div className="space-y-6">
             <h2 className="text-base font-medium text-muted-foreground uppercase">
-              Highlighted Work
+              Highlights
             </h2>
             <div className="space-y-8">
               {[
@@ -236,7 +205,7 @@ export default function Home() {
                     onMouseLeave={() =>
                       externalLinkIconRef.current?.stopAnimation()
                     }
-                    className="block space-y-3 transition-all duration-300 hover:text-foreground rounded-xl p-0 sm:p-2 hover:backdrop-blur-xl hover:bg-white/5 border border-transparent hover:border-white/10 hover:shadow-lg"
+                    className="block space-y-3 pl-4 sm:pt-2 sm:pr-2 sm:pb-2 border-l-2 border-zinc-100/50"
                   >
                     <div className="space-y-2 flex-1">
                       <div className="flex items-center justify-between">
@@ -254,7 +223,6 @@ export default function Home() {
                         </div>
                         <div className="text-base text-muted-foreground whitespace-nowrap">
                           <span className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-                            {project.action}{" "}
                             <ExternalLinkIcon
                               size={18}
                               duration={1}
@@ -268,11 +236,8 @@ export default function Home() {
                         <code>{project.description}</code>
                       </div>
                       <div className="flex flex-wrap gap-2 items-center mt-3">
-                        <span
-                          key={project.highlight}
-                          className="text-xs text-muted-foreground"
-                        >
-                          <code className="bg-zinc-800 p-1 rounded-md text-yellow-400/60 flex items-center gap-2">
+                        <span key={project.highlight} className="text-xs">
+                          <code className="text-yellow-400/60 flex items-center gap-2">
                             <Star className="w-3 h-3" />
                             {project.highlight}
                           </code>
@@ -284,6 +249,67 @@ export default function Home() {
               })}
             </div>
           </div>
+
+          {/* Blog Posts */}
+          {/* <div className="space-y-6">
+            <h2 className="text-base font-medium text-muted-foreground uppercase">
+              Blog Posts
+            </h2>
+            <div className="space-y-8">
+              {[
+                {
+                  title: "Blog Post Title",
+                  description:
+                    "Brief description of the blog post content and what it covers.",
+                  image: "/blog-placeholder.jpg",
+                  href: "/blog/post-slug",
+                  date: "2024",
+                },
+                {
+                  title: "Blog Post Title",
+                  description:
+                    "Brief description of the blog post content and what it covers.",
+                  image: "/blog-placeholder.jpg",
+                  href: "/blog/post-slug",
+                  date: "2024",
+                },
+              ].map((post, idx) => (
+                <Link
+                  key={idx}
+                  href={post.href}
+                  className="block transition-all duration-300 hover:text-foreground rounded-xl overflow-hidden hover:backdrop-blur-xl hover:bg-white/5 border border-transparent hover:border-white/10 hover:shadow-lg"
+                >
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="w-full sm:w-48 sm:h-32 flex-shrink-0">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        width={192}
+                        height={128}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="space-y-1 flex-1">
+                          <div className="text-base font-medium">
+                            {post.title}
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            <code>{post.description}</code>
+                          </div>
+                        </div>
+                        <div className="text-sm text-muted-foreground whitespace-nowrap">
+                          <code>{post.date}</code>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div> */}
+
           <div className="space-y-6">
             <h2 className="text-base font-medium text-muted-foreground uppercase">
               Featured In
@@ -330,7 +356,6 @@ export default function Home() {
                         <div className="text-base font-medium flex items-start justify-between">
                           {article.title}
                           <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors ml-4">
-                            <span className="font-normal">View</span>
                             <EyeIcon
                               size={18}
                               duration={1}
@@ -369,12 +394,19 @@ export default function Home() {
             <div className="space-y-8">
               {[
                 {
+                  title: "Prept.ai",
+                  description:
+                    'Interviewer: "So what\'s your greatest weakness?" Me: "ummmmmmmmmmmm."',
+                  href: sharedLinks.preptai,
+                  icon: "/prept.ico",
+                  date: "2023",
+                },
+                {
                   title: "Colos",
                   description:
                     "Why am I still using a keyfob to enter my gym? and swiping my card to buy a Celcius? Seriously, its 2025.",
-                  tags: ["JavaScript", "React"],
                   href: sharedLinks.colos,
-                  action: "Visit",
+
                   icon: "/colos.ico",
                   date: "2023",
                 },
@@ -382,29 +414,15 @@ export default function Home() {
                   title: "Harbor Dating",
                   description:
                     "The reason I don't get any matches is because Hinge hates me. There's gotta be a better approach to online dating. Right? ...RIGHT?",
-                  tags: ["JavaScript", "React"],
                   href: sharedLinks.harbor,
-                  action: "Visit",
                   icon: "/harbor.png",
-                  date: "2023",
-                },
-                {
-                  title: "Prept.ai",
-                  description:
-                    '"So what\'s your greatest weakness?" - ummmmmmmmmmmmmmmmmmmmm.',
-                  tags: ["Whisper API", "GPT Fine-tuning"],
-                  href: sharedLinks.preptai,
-                  action: "Visit",
-                  icon: "/prept.ico",
                   date: "2023",
                 },
                 {
                   title: "Brickify Lab",
                   description:
                     "I wonder if I can make ANY image with those Lego Mosaic sets?",
-                  tags: ["Euclidean distance", "Image processing"],
                   href: sharedLinks.brickify,
-                  action: "Visit",
                   icon: "/brickify.ico",
                   date: "2022",
                 },
@@ -424,7 +442,7 @@ export default function Home() {
                     onMouseLeave={() =>
                       externalLinkIconRef.current?.stopAnimation()
                     }
-                    className="block space-y-3 transition-all duration-300 hover:text-foreground rounded-xl p-0 sm:p-2 hover:backdrop-blur-xl hover:bg-white/5 border border-transparent hover:border-white/10 hover:shadow-lg"
+                    className="block space-y-3 pl-4 sm:pt-2 sm:pr-2 sm:pb-2 border-l-2 border-zinc-100/50"
                   >
                     <div className="space-y-2 flex-1">
                       <div className="flex items-center justify-between">
@@ -442,7 +460,6 @@ export default function Home() {
                         </div>
                         <div className="text-base text-muted-foreground whitespace-nowrap">
                           <span className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-                            {project.action}{" "}
                             <ExternalLinkIcon
                               size={18}
                               duration={1}
@@ -454,19 +471,6 @@ export default function Home() {
                       </div>
                       <div className="text-sm leading-relaxed text-muted-foreground">
                         <code>{project.description}</code>
-                      </div>
-                      <div className="flex flex-wrap gap-2 items-center mt-3">
-                        <CornerDownRight className="w-4 h-4" />
-                        {project.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-xs text-muted-foreground"
-                          >
-                            <code className="bg-zinc-800 p-1 rounded-md">
-                              {tag}
-                            </code>
-                          </span>
-                        ))}
                       </div>
                     </div>
                   </Link>
