@@ -45,6 +45,7 @@ export default function Home() {
                     className={`font-semibold tracking-wide leading-normal flex items-start gap-4 sm:gap-0`}
                   >
                     Hi, I'm Aaron{" "}
+                    <span className="hidden sm:inline">&nbsp;Zeng</span>{" "}
                     <div className="h-12 w-12 inline-block sm:hidden">
                       <Image
                         src="/bio_img_small.png"
@@ -141,7 +142,7 @@ export default function Home() {
                     />
                   </Link>
                   <Link
-                    className="text-xs flex items-center gap-2 mb-1.5"
+                    className="text-sm flex items-center gap-2 mb-1.5"
                     href="/ZENG_AARON_RESUME_5_31_25.pdf"
                     download="Aaron_Zeng_Resume.pdf"
                     onMouseEnter={() =>
@@ -177,6 +178,7 @@ export default function Home() {
                   href: "/the-better-threads-project",
                   action: "Try it",
                   icon: "/tbpt.png",
+                  newTab: false,
                   date: "2024",
                 },
                 {
@@ -187,6 +189,7 @@ export default function Home() {
                   href: sharedLinks.gptgo,
                   action: "Visit",
                   icon: "/gpt-go.png",
+                  newTab: true,
                   date: "2023",
                 },
               ].map((project, idx) => {
@@ -197,8 +200,8 @@ export default function Home() {
                   <Link
                     key={idx}
                     href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={project.newTab ? "_blank" : undefined}
+                    rel={project.newTab ? "noopener noreferrer" : undefined}
                     onMouseEnter={() =>
                       externalLinkIconRef.current?.startAnimation()
                     }
