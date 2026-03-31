@@ -41,22 +41,23 @@ const projects = [
 
 const writing = [
   {
+    name: "Why is chatting with LLMs in Chinese the new wave?",
+    href: "https://medium.com/@aaronz2003/why-is-chatting-with-llms-in-chinese-the-new-wave-67a161e29bad?postPublishedType=initial",
+    date: "3/30/26",
+  },
+  {
     name: "The Beige Brand Epidemic",
     href: "https://medium.com/@aaronz2003/the-beige-brand-epidemic-67cc4cb3769d",
+    date: "2/28/26",
   },
   {
     name: "There Are No Shortcuts in Entrepreneurship",
     href: "https://medium.com/@aaronz2003/there-are-no-shortcuts-in-entrepreneurship-74674318ecba",
+    date: "1/25/26",
   },
 ];
 
 const press = [
-  {
-    name: "The Effects of Quarantine on Depression",
-    pub: "ISTEAM",
-    href: sharedLinks.isteam,
-    year: "2020",
-  },
   {
     name: "Mechanical Paradox Cubed wins MD State FTC",
     pub: "I95 Business",
@@ -82,7 +83,7 @@ export default function Home() {
           >
             Aaron Zeng
           </h1>
-          <p className="text-sm text-muted-foreground leading-relaxed max-w-md  border-b border-muted-foreground/20 pb-6">
+          <p className="text-sm text-muted-foreground leading-relaxed border-b border-muted-foreground/20 pb-6">
             SWE @ JPMorganChase, building AI tools for brand-aligned UI
             generation. Previously built{" "}
             <a
@@ -103,7 +104,7 @@ export default function Home() {
             >
               GptGO
             </a>{" "}
-            <span className="text-nowrap">{"(50k+ lifetime users)"}</span>
+            <span className="text-nowrap">{"(50k+ installs)"}</span>
           </p>
         </header>
 
@@ -156,7 +157,7 @@ export default function Home() {
                     {p.name}
                   </span>
                   <span className="text-muted-foreground text-xs whitespace-nowrap">
-                    Medium
+                    {p.date}
                   </span>
                 </a>
               </li>
@@ -218,7 +219,7 @@ export default function Home() {
             [email]
           </a>
           <a
-            href="/ZENG_AARON_RESUME_5_31_25.pdf"
+            href="/ZENG_AARON_RESUME_3_30_26.pdf"
             download="Aaron_Zeng_Resume.pdf"
             className="hover:text-foreground"
           >
