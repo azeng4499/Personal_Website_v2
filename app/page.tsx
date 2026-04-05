@@ -3,14 +3,8 @@ import sharedLinks from "./shared-links.json";
 const projects = [
   {
     name: "The Better Threads Project",
-    desc: "Custom GPT for cyberbullying detection",
+    desc: "From-scratch GPT for cyberbullying detection",
     href: sharedLinks.betterThreads,
-    year: "2025",
-  },
-  {
-    name: "Colos",
-    desc: "100% digital gym management",
-    href: sharedLinks.colos,
     year: "2025",
   },
   {
@@ -21,21 +15,9 @@ const projects = [
   },
   {
     name: "GptGO",
-    desc: "ChatGPT from any Chrome tab",
+    desc: "Chrome extension for ChatGPT",
     href: sharedLinks.gptgo,
     year: "2023",
-  },
-  {
-    name: "Harbor",
-    desc: "Rethinking online dating",
-    href: sharedLinks.harbor,
-    year: "2023",
-  },
-  {
-    name: "Brickify Lab",
-    desc: "Image to Lego mosaic converter",
-    href: sharedLinks.brickify,
-    year: "2022",
   },
 ];
 
@@ -57,25 +39,10 @@ const writing = [
   },
 ];
 
-const press = [
-  {
-    name: "Mechanical Paradox Cubed wins MD State FTC",
-    pub: "I95 Business",
-    href: sharedLinks.i95business,
-    year: "2019",
-  },
-  {
-    name: "Mt. Hebron wins 5th HC Invitational swimming title",
-    pub: "Baltimore Sun",
-    href: sharedLinks.baltimoresun,
-    year: "2019",
-  },
-];
-
 export default function Home() {
   return (
     <main className="mx-auto max-w-2xl px-6 py-20 sm:py-32">
-      <div className="space-y-14">
+      <div className="space-y-10">
         <header className="space-y-4">
           <h1
             className="text-4xl tracking-wide"
@@ -84,8 +51,8 @@ export default function Home() {
             Aaron Zeng
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed border-b border-muted-foreground/20 pb-6">
-            SWE @ JPMorganChase, building AI tools for brand-aligned UI
-            generation. Previously built{" "}
+            Building AI tools @ JPMorganChase for brand-aligned UI generation.
+            Previously built{" "}
             <a
               href={sharedLinks.preptai}
               target="_blank"
@@ -107,10 +74,34 @@ export default function Home() {
             <span className="text-nowrap">{"(50k+ installs)"}</span>
           </p>
         </header>
+        <section className="space-y-4">
+          <h2 className="text-xs text-muted-foreground uppercase tracking-widest">
+            Writing
+          </h2>
+          <ul className="space-y-3">
+            {writing.map((p) => (
+              <li key={p.name}>
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-baseline gap-4 text-sm justify-between"
+                >
+                  <span className="text-foreground group-hover:text-muted-foreground transition-colors">
+                    {p.name}
+                  </span>
+                  <span className="text-muted-foreground text-xs whitespace-nowrap">
+                    {p.date}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <section className="space-y-4">
           <h2 className="text-xs text-muted-foreground uppercase tracking-widest">
-            Projects
+            Work
           </h2>
           <ul className="space-y-3">
             {projects.map((p) => (
@@ -139,57 +130,6 @@ export default function Home() {
             ))}
           </ul>
         </section>
-
-        <section className="space-y-4">
-          <h2 className="text-xs text-muted-foreground uppercase tracking-widest">
-            Writing
-          </h2>
-          <ul className="space-y-3">
-            {writing.map((p) => (
-              <li key={p.name}>
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-baseline gap-4 text-sm justify-between"
-                >
-                  <span className="text-foreground group-hover:text-muted-foreground transition-colors">
-                    {p.name}
-                  </span>
-                  <span className="text-muted-foreground text-xs whitespace-nowrap">
-                    {p.date}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="space-y-4">
-          <h2 className="text-xs text-muted-foreground uppercase tracking-widest">
-            Press
-          </h2>
-          <ul className="space-y-3">
-            {press.map((p) => (
-              <li key={p.name}>
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-baseline justify-between gap-4 text-sm"
-                >
-                  <span className="text-foreground group-hover:text-muted-foreground transition-colors truncate">
-                    {p.name}
-                  </span>
-                  <span className="text-muted-foreground text-xs whitespace-nowrap">
-                    {p.pub}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-
         <footer className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted-foreground pt-2">
           <a
             href={sharedLinks.github}
