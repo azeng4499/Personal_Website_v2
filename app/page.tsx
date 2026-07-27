@@ -51,7 +51,7 @@ export default function Home() {
             Aaron Zeng
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed border-b border-muted-foreground/20 pb-6">
-            Building AI tools @ JPMorganChase for brand-aligned UI generation.
+            Building AI infra @ JPMorganChase for brand-aligned UI generation.
             Previously built{" "}
             <a
               href={sharedLinks.preptai}
