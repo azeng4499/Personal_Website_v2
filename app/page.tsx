@@ -51,7 +51,7 @@ export default function Home() {
             Aaron Zeng
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed border-b border-muted-foreground/20 pb-6">
-            Building AI infra @ JPMorganChase for brand-aligned UI generation.
+            Building AI tooling @ JPMorganChase for brand-aligned UI generation.
             Previously built{" "}
             <a
               href={sharedLinks.preptai}
@@ -71,7 +71,7 @@ export default function Home() {
             >
               GptGO
             </a>{" "}
-            <span className="text-nowrap">{"(50k+ installs)"}</span>
+            <span className="text-nowrap">{"(40k+ installs)"}</span>
           </p>
         </header>
         <section className="space-y-4">
