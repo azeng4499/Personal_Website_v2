@@ -51,8 +51,8 @@ export default function Home() {
             Aaron Zeng
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed border-b border-muted-foreground/20 pb-6">
-            Building AI tooling @ JPMorganChase for brand-aligned UI generation.
-            Previously built{" "}
+            Building AI and developer tooling @ JPMorganChase for the Manhattan
+            Design System. Previously built{" "}
             <a
               href={sharedLinks.preptai}
               target="_blank"
@@ -74,30 +74,6 @@ export default function Home() {
             <span className="text-nowrap">{"(40k+ installs)"}</span>
           </p>
         </header>
-        <section className="space-y-4">
-          <h2 className="text-xs text-muted-foreground uppercase tracking-widest">
-            Writing
-          </h2>
-          <ul className="space-y-3">
-            {writing.map((p) => (
-              <li key={p.name}>
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-baseline gap-4 text-sm justify-between"
-                >
-                  <span className="text-foreground group-hover:text-muted-foreground transition-colors">
-                    {p.name}
-                  </span>
-                  <span className="text-muted-foreground text-xs whitespace-nowrap">
-                    {p.date}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
 
         <section className="space-y-4">
           <h2 className="text-xs text-muted-foreground uppercase tracking-widest">
@@ -124,6 +100,31 @@ export default function Home() {
                   </span>
                   <span className="block text-muted-foreground text-xs mt-0.5">
                     {p.desc}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="space-y-4">
+          <h2 className="text-xs text-muted-foreground uppercase tracking-widest">
+            Writing
+          </h2>
+          <ul className="space-y-3">
+            {writing.map((p) => (
+              <li key={p.name}>
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-baseline gap-4 text-sm justify-between"
+                >
+                  <span className="text-foreground group-hover:text-muted-foreground transition-colors">
+                    {p.name}
+                  </span>
+                  <span className="text-muted-foreground text-xs whitespace-nowrap">
+                    {p.date}
                   </span>
                 </a>
               </li>
@@ -159,7 +160,7 @@ export default function Home() {
             [email]
           </a>
           <a
-            href="/ZENG_AARON_RESUME_3_30_26.pdf"
+            href="/ZENG_AARON_RESUME_FINAL_2026.pdf"
             download="Aaron_Zeng_Resume.pdf"
             className="hover:text-foreground"
           >
